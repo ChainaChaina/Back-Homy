@@ -103,7 +103,7 @@ module.exports = {
             }
             var i = 1;
 
-            var str = CaronaFromDb.interesses;
+            var str = CaronaFromDb.interesse;
             console.log('chegou')
             var array = str.split(' ');
             console.log(array);
