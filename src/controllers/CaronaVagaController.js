@@ -73,16 +73,17 @@ module.exports = {
             console.log(CaronaFromDb.interesse)
             if (CaronaFromDb.interesse == undefined) {
                 await Carona.updateOne({ interesses: CaronaFromDb.interesse }, { $set: { interesses: request._id } })
+                return -1
             }
 
 
-            var interesses = CaronaFromDb.interesse;
-            console.log(interesses);
+            var interesse = CaronaFromDb.interesse;
+            console.log(interesse);
             var novoInteresse = request.novoInteresse;
             console.log(novoInteresse);
-            var res = `${interesses} ${novoInteresse}`;
+            var res = `${interesse} ${novoInteresse}`;
             console.log(res);
-            await Carona.updateOne({ interesses: CaronaFromDb.interesse }, { $set: { interesses: res } })
+            await Carona.updateOne({ interesse: CaronaFromDb.interesse }, { $set: { interesse: res } })
 
 
         }
@@ -104,18 +105,22 @@ module.exports = {
             var i = 1;
 
             var str = CaronaFromDb.interesse;
+            console.log(str)
             console.log('chegou')
             var array = str.split(' ');
             console.log(array);
 
             while (array[i] != null) {
-
-                const UserFromDb = await User.findOne({ _id: array[i] }); // procura pelo valor de ID criado pelo mongo automaticamente
-                console.log(UserFromDb);
-                if (UserFromDb == null) {
-                    console.log('o sistema não encontrou usuários/senha na data base.');
+                if (array[i] == " ") {
+                    console.log("pulando os espaços")
+                } else {
+                    const UserFromDb = await User.findOne({ _id: array[i] }); // procura pelo valor de ID criado pelo mongo automaticamente
+                    console.log(UserFromDb);
+                    if (UserFromDb == null) {
+                        console.log('o sistema não encontrou usuários/senha na data base.');
+                    }
+                    i++
                 }
-                i++
             }
             if (array[i] == null) {
                 return -1

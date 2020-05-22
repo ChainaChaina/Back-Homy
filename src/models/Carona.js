@@ -16,7 +16,7 @@ const CaronaSchema = new mongoose.Schema({
     userEmail: String,
     telefone: String,
     votos: Number,
-    interesse: String
+    interesse: String,
 });
 
 module.exports = mongoose.model('Carona', CaronaSchema);
