@@ -1,0 +1,44 @@
+
+### VE AS CARONAS: // ok
+GET  http://localhost:3333/carona
+Content-Type: application/json
+
+### CRIA CARONA: // ok
+POST   http://localhost:3333/carona
+Content-Type: application/json
+
+{"nome": "Chaina", "nota": 5.0, "localSaida": "UFES-VIX", "localChegada": "Alegre-ES"," data": "24/10/2020", "valor": 50.00, " horaSaida": "14h","horaChegada": "17:30", "embarque": "creio que esse campo seja desnecessário", "imagem": "uns carro massa", "desembarque": "também desnecessário os caras que se resolvam", "vagas": 4, "userEmail": "lucas@gmail.com", "telefone": "9999-9999", "interesse": "", "votos":1     }
+
+###DELETA:  
+DELETE    http://localhost:3333/carona
+Content-Type: application/json
+
+{"_id": "5ec708ba39f268254885b044" }
+
+### VE SE TEM VAGA:
+POST  http://localhost:3333/carona/vagas
+Content-Type: application/json
+
+
+{"_id": "5ec708cd39f268254885b045"}
+
+### VOTANA CARONA:
+POST      http://localhost:3333/carona/votar
+Content-Type: application/json
+
+
+{"_id": "5ec70a02e2f68304a0ea0953", "nota": 3}
+
+### INTERESSE
+POST      http://localhost:3333/carona/interesse
+Content-Type: application/json
+
+
+{"_id": "5ec71454f3059b2a2c183627", "novoInteresse":"5e9889ee48a5cf25b0cac3de" }
+
+###
+POST        http://localhost:3333/carona/retornaInteresse
+Content-Type: application/json
+
+
+{"_id": "5e91279613f9f736442f2167" }
